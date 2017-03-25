@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1916
-NormalPos.bottom=915
+NormalPos.right=940
+NormalPos.bottom=894
 Class=LaTeXView
 Document=ilass.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=0
+TopLine=104
+Cursor=4384
 
 [Frame1]
 Flags=0
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1916
-NormalPos.bottom=915
+NormalPos.right=940
+NormalPos.bottom=894
 Class=LaTeXView
 Document=ilass.cls
 
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1916
-NormalPos.bottom=915
+NormalPos.right=940
+NormalPos.bottom=894
 Class=BibTeXView
 Document=ilass.bib
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=0
+TopLine=163
+Cursor=7998
 
 [Frame3]
 Flags=0
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1916
-NormalPos.bottom=915
+NormalPos.right=940
+NormalPos.bottom=894
 Class=LaTeXView
 Document=ilass.bst
 
 [Frame3_View0,0]
-TopLine=0
+TopLine=21
 Cursor=0
 
 [SessionInfo]
