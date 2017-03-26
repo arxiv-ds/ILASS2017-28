@@ -1,14 +1,15 @@
 \documentclass[letterpaper,twocolumn,10pt]{ilass}
 \def\thepage{}
 
+\newcommand\CN{\ensuremath{\mathit{CN}}}
+
 %\usepackage{times}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{gensymb}
-
-\usepackage{graphicx}
 
 \evensidemargin = 0.0in
 \headheight = 0.0in
@@ -42,18 +43,17 @@
 \begin{minipage}{6.5in} \normalsize
 Injector geometries of large marine two-stroke diesel engines differ extensively from
 configurations typically used in diesel engines for automotive applications.
-In marine engines, the fuel enters the combustion volume radially, supplied by a
-multi-hole injector with asymmetrically positioned orifices facing in similar directions
-(shallow umbrella angle). Due to this setup, the nominal direction of the orifice group
+In marine engines, the fuel enters the combustion volume radially, supplied by
+multi-hole injectors with asymmetrically positioned orifices facing in similar directions. Due to this setup, the nominal direction of the orifice group
 is also eccentric with respect to the central axis of the injector.
 %
 Experiments have shown that the sprays formed by this arrangement are asymmetric
 with respect to the axis at each orifice. These strong deviations can lead
 to wall wetting which increases fuel consumption, emissions, component temperatures and
-contributes to loss of lubrication at the wall.
+contributes to loss of lubrication at the cylinder wall.
 In order to investigate the in-nozzle flow and how it affects the spray morphology in this
 design, experiments were carried out using transparent nozzles at injection pressures and
-air densities of up to 80~MPa and 35~kg/m$^3$, respectively.
+air densities of up to 50~MPa and 35~kg/m$^3$, respectively.
 The experiments were performed with diesel fuel in a newly built ambient temperature
 spray chamber which was designed to cope with significant spray backsplash.
 The results discussed here were generated using an orthogonally arranged 0.75~mm diameter
@@ -61,7 +61,7 @@ mono-hole injector which matches the hole size and geometry used in large marine
 diesel engines.
 %
 High-speed shadowgraphy using a far-field microscope was applied to visualize cavitation
-within the nozzle during the complete injection process. These imaging results are use to
+within the nozzle during the complete injection process. These imaging results are used to
 compute statistical evaluations of cavitation in the nozzle over a range of conditions.
 \end{minipage} \vspace{-0.25in}}
 \baselineskip = 2.0\baselineskip
@@ -87,16 +87,16 @@ compute statistical evaluations of cavitation in the nozzle over a range of cond
 %   --marine diesels high thermal efficiency drives design
 %   --emissions are increasingly important
 \section*{Introduction}
-Maritime shipping currently represents the largest mode of supply for moving goods around
-world. Sea transport of goods accounts for more than 53 percent of U.S. imports and 38 percent
-of exports (by value)\cite{Blank2012}. The efficiency and prevalence of this transport network
+Maritime shipping currently represents the largest mode of supply for moving goods around the
+world. Sea transport of goods accounts for more than 53\% of U.S. imports and 38\%
+of exports (by value) \cite{Blank2012}. The efficiency and prevalence of this transport network
 is due in large part to the advantages of large two-stroke marine diesel engines which have
 been designed to operate using a variety of highly variable, low cost liquid fuels. 
 %
 Much of the ongoing marine engine development is focused on meeting the requirements of the
 IMO (organisation maritime internationale) Tier III legislation which calls for an 80\%
 reduction in $NO\textsubscript{x}$ engine out levels and places more stringent limits on
-the fuels which can be used can be used near populated coastlines.
+the fuels which can be used near populated coastlines.
 
 The realization of strategies for reducing $NO\textsubscript{x}$ production by
 modifying the in-cylinder combustion, e.g. water in fuel emulsion or dual fuel reaction control,
@@ -105,39 +105,40 @@ requires a solid understanding of spray development and mixing during fuel injec
 Past experimental work conducted at Winterthur Gas \& Diesel Ltd.~(Win~G\&D) using a
 constant volume spray combustion chamber (SCC) with dimensions representative of
 smaller two-stroke marine engines (\o 500 x 150~mm) highlights some of the issues
-associated with fuel injection for large engines\cite{Herrmann2011}.
+associated with fuel injection for large engines \cite{Herrmann2011}.
 Investigations on the SCC have shown that the eccentric and offset nozzle designs utilized
-in two-stroke marine engines exhibit spray deflections on the order of
-10$^{\circ}$ or more\cite{Schmid2013}.
+in two-stroke marine engines can exhibit spray deflections on the order of
+10$^{\circ}$ or more \cite{Schmid2013}.
 %
 In addition, preliminary work using CFD simulations with an advanced cavitation model
 indicates that the two-phase, highly compressible flow inside the nozzle may strongly
-influence the spray propagation\cite{Schmid2014}.
+influence the spray propagation \cite{Schmid2014}.\newline
 %
-
 %   --Cavitation number should be introduced here. Explain what it means and why it's useful.
 %   --No need to explain the other definitions used for CN, just be clear about
 %     the definition that you are using.
 %   --Put in an equation for CN ... refer to it in the text.
+The dimensionless cavitation number, $\CN$, is often used as a metric to qualify the
+likelihood of cavitation for a given set of conditions. It is defined as pressure ratio from pressure in front and behind the orifice and the vapor pressure of the liquid \cite{Hult2016, Giannadakis2008}:
 
-%%--cavitation number stuff, moved from 'Results' section.
-%Literature uses different non-dimensional cavitation numbers ($CN$) to represent cavitation
-%conditions in nozzles. These numbers are usually defined as ratios from pressure in front and
-%behind the orifice and the vapour pressure of the liquid \cite{Hult2016, Giannadakis2008}.
-%A commonly used one is
-%$(p\textsubscript{i} - p\textsubscript{b})/(p\textsubscript{b}-p\textsubscript{v})$,
-%where $p\textsubscript{i}$ is the pressure upstream and $p\textsubscript{b}$ the pressure
-%downstream the orifice (also called back pressure). $p\textsubscript{v}$ is the vapor pressure
-%of diesel and neglected as insignificant for $CN$ when using rail pressures orders of magnitude
-%higher.\\
-%%
+\begin{align}
+\CN = \frac{p\textsubscript{i} - p\textsubscript{b}}{p\textsubscript{b}-p\textsubscript{v}}
+\label{cavitation}
+\end{align}
+%%%%
 
-Cavitation often occurs as ``geometric cavitation'', caused by the sudden reduction of
+where $p\textsubscript{i}$ is the pressure upstream and $p\textsubscript{b}$ the pressure
+downstream the orifice (also called back pressure). $p\textsubscript{v}$ is the vapor pressure
+of diesel and neglected as insignificant for $CN$ when using injection pressures orders of magnitude
+higher.
+
+%%%
+Cavitation often occurs as ''geometric cavitation'', caused by the sudden reduction of
 static pressure in the fluid near the corner and wall of the nozzle hole as the flow
 enters the passages; or as "string cavitation", appearing transiently near the center of
-strong vortices in the flow\cite{Andriotis2008}.
+strong vortices in the flow \cite{Andriotis2008}.
 %
-Results from Schmid et al. indicate that both of these cavitation forms are important to the
+Results from Schmid et al. \cite{Schmid2014} indicate that both of these cavitation forms are important to the
 internal flow of injectors designed for use in large two-stroke marine diesel engines.
 However, it is not clear how switching from one type of internal flow to another will affect
 spray formation and thus spray breakup, fuel mixing, and combustion in a real marine engine
@@ -153,7 +154,7 @@ This is not surprising, since primary breakup is often described as the least un
 In-nozzle flow is a topic of considerable interest, and a variety detailed work using transparent nozzles to study flows related to fuel injection have been presented recently
 \cite{Fansler2015, Blessing2003, Duke2014}.
 However, this work is most relevant to the injection strategies used in automotive applications.
-Hult, et al.\cite{Hult2016} provided visualizations for hole sizes and flow rates related to marine diesel engines, but at fuel pressures limited to around 10~MPa.
+Hult, et al. \cite{Hult2016} provided visualizations for hole sizes and flow rates related to marine diesel engines, but at fuel pressures limited to around 10~MPa.
 
 Recent efforts at Chalmers University have led to the development of optically
 transmissive injector inserts, which can be designed to duplicate production nozzle geometries
@@ -222,7 +223,7 @@ The spray chamber is designed to operate at ambient temperature, primarily in co
 with transparent nozzles for coupled measurements of internal flow and the near-nozzle
 spray formation region.
 %
-The transparent nozzle inserts used in the current work are made of PMMA (polymethylacrylate), a thermoplastic with a melting point around 140 to 160$^{\circ}$C.
+The transparent nozzle inserts used in the current work are made of PMMA (polymethylmethacrylate), a thermoplastic with a melting point around 140 to 160$^{\circ}$C.
 %
 A major objective of the system is to allow observation of the in-nozzle flow and how it
 influences the primary breakup of a non-reacting spray. From this standpoint, it is reasonable
@@ -231,7 +232,7 @@ dominates the breakup behavior, especially near the orifice, and temperature eff
 %
 Incidentally, the flange design of the new chamber was chosen to match the specifications
 used in the high-pressure, high-temperature spray chamber at Chalmers. This allows for
-testing at high temperatures (up to 900~K) or even higher pressures (up to 100 bar)
+testing at high temperatures (up to 900~K) or even higher pressures (up to 10~MPa)
 without substantial redesign of the experiment if the necessary.
 %
 The new spray chamber can be filled with nitrogen or air to pressures up to 3~MPa to
@@ -241,7 +242,7 @@ of the main chamber (see figure \ref{fig1}).
 This feature is necessary to reduce rebound and deal with the large amount of fuel
 injected into the main chamber, and also prevents window fouling by reducing the number of fine fuel droplets present in the system.
 The secondary tank is mounted at a lower position as shown in figure \ref{fig1},
-allowing gravity flow collection and disposal residual fuel as well.
+allowing gravity flow collection and disposal of residual fuel as well.
 A pneumatically driven angle valve is used to control the flushing action of the chamber.
 This valve is mounted near the bottom flange of the spray chamber and not visible in figure \ref{fig1}. 
 
@@ -289,7 +290,7 @@ This nozzle was subsequently adapted and fitted to a transparent nozzle insert h
 (see figure \ref{fig2}).
 To cope with the need for high diesel mass flows for the marine injectors,
 a piston accumulator with a total volume of 5~dm$^3$ was used to stabilize
-the injection pressure for the duration the injection event (approximately 8~ms). 
+the injection pressure for the duration of the injection event (approximately 8~ms). 
 
 
 %EXPERIMENT
@@ -305,13 +306,13 @@ as the fluid phase, pressure, and temperature vary. This index difference refrac
 light causing a dark signature which indicates cavitation in the flow.  
 %
 Source light in the experiments was supplied by a pulsed diode laser (Cavilux Smart, Cavitar)
-operating at 640~nm and set to deliver XX ns pulses at a repetition rate of 20~kHz.
+operating at 640~nm and set to deliver 10~ns pulses at a repetition rate of 20~kHz.
 %
 The nozzle flow was imaged by a long distance microscope (QM100, Questar)
 and acquired by a high-speed CMOS camera (Phantom V1210, Vision Research).
 %
 The resulting (512~x~800~pixel) digital images were recorded at a framerate of 20,000~fps,
-where each image corresponds to a field of view of 2.5 x 3.9~mm (see figure \ref{fig3}). 
+where each image corresponds to a field of view of approximately 2.5 x 3.9~mm (see figure \ref{fig3}). 
 %
 
 \begin{figure}[h]
@@ -344,14 +345,14 @@ orifice is important for understanding boundary conditions.
 
 The transparent nozzle section used in the imaging, as shown in figure \ref{fig3},
 follows the design developed at Chalmers for studying internal nozzle flow at elevated
-pressures\cite{Falgout2016}.
+pressures \cite{Falgout2016}.
 %
 % -- Don't try to explain your overall project, since that is generally
 %    of less interest to people at the conference, and hard to do well
 %    in this limited space. Try to focus on results and what is being done
 %    right now as much as possible.
 In these initial investigations, the nozzle design is set up to coincide with the
-simple the geometry used in the preliminary CFD simulations carried out at Win~G\&D.
+simple geometry used in the preliminary CFD simulations carried out at Win~G\&D.
 %
 Here, the nozzle is a basic plain circular orifice, with sharp edges and no taper.
 The diameter of the sac volume is 3~mm (see figure \ref{fig3},  {\o b}) and the orifice has a diameter of 0.75~mm (see figure \ref{fig3},  {\o a}) and a length of 1.875~mm.
@@ -378,24 +379,16 @@ for accuracy, e.g. impingement force evaluations of mass flowrate.
 %RESULTS
 \section*{Results}
 
-<<<<<<< HEAD
-All images shown are acquired during the quasi-steady state condition of the injection,
-where the needle of the injector is open and therefore the fuel pressure and volume flow
-is approximately constant. Figure \ref{fig4} a) and b) show the cavitation flow at 50~MPa
-injection pressure and an air density of 1.2~kg/m$^3$ ($CN \approx 390$). Dark areas
-within the nozzle indicate multiphase/cavitating flow and bright areas indicate
-non-cavitating liquid fuel.
+All images shown are acquired during the quasi-steady state condition of the injection, where
+the needle of the injector is fully open and the fuel pressure and volume flow are
+constant. Figure \ref{fig4} a) and b) show the cavitation flow at 50~MPa injection
+pressure and an air density of approximately 1.2~kg/m$^3$ ($CN \approx 390$). Dark areas within the nozzle
+indicate multiphase/cavitating flow and bright areas indicate non-cavitating liquid fuel.
 %
 % -- A better approach here is to refer to the figure and briefly explain what it shows.
 % -- Labels in the image, maybe an dashed-line overlay to orient the reader, would be
 %    good. Whenever possible, make your figures understandable without much info from
 %    other figures or sections of the text
-By comparing the schematic of the nozzle in figure \ref{fig3} and the images shown
-(e.g. in figure \ref{fig4}) the selected FOV can be interpreted. The flow direction of the
-diesel fuel is from top. It enters the orifice and flows to the right where at the end of the
-orifice the spray emerges.
-
-
 \begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
@@ -405,20 +398,37 @@ orifice the spray emerges.
 \end{tikzpicture}
 \end{center}
 \vspace*{-10mm}
-\caption{Cavitation in orifice at 50 MPa rail pressure and atmospheric back pressure
+\caption{Cavitation in orifice at 50 MPa injection pressure and atmospheric back pressure
          ($CN \approx 390$): a) single shot image with transient, turbulent cavitation
 				 phenomena in the orifice center, b) averaged image.}
 \label{fig4} 
 \end{figure}
 
-The spray that emerges the orifice of the transparent nozzle is unfocused in the shadow
-images due to the shallow depth of field of the imaging optics. The dark vertical line on
-the left side of the image indicates the sac hole wall. This line is visible since the
-refractive index of the diesel fuel and the PMMA are similar but not identical.
-
+By comparing the schematic of the nozzle in figure \ref{fig3} and the images shown
+(e.g. in figure \ref{fig4}) the selected FOV can be interpreted. The flow direction of the
+diesel fuel is from top. It enters the orifice and flows to the right where at the end of the
+orifice the spray emerges.\newline
+The spray that emerges the orifice of the transparent nozzle is unfocused in the shadow images
+due to the shallow depth of field of the imaging optics. The dark vertical line on the left side of the image indicates the sac hole wall.
+This line is visible since the refractive index of the diesel fuel and the PMMA are
+very similar but not identical.
 
 % -- If you label the flow direction and walls in the figure, you wouldn't need to
 %    explain the orientation change in the caption.
+
+The cavitation pockets along the orifice walls are visible over the entire length,
+which may indicate the occurrence of non-symmetric hydraulic flip.
+However, the cavitation is highly unsymmetrical as clearly visible in the averaged image shown
+in figure \ref{fig4} b). The cavitation pocket on the top side of the orifice is larger which
+can be explained with the flow direction coming from the top of the sac bore.\newline
+To eliminate the transient turbulence phenomena in the orifice, the single images
+acquired during the steady-state injection process have been averaged over multiple injection cycles. An averaged image is depicted in figure \ref{fig4} b).
+%
+The transient cavitation phenomena that are visible between the cavitation pockets along the
+orifice walls are highly fluctual and different from image to image.  As the images are only
+acquired with 20,000~fps the timing between single events is 50~$\mu$s which is too long at
+the given velocities to connect the transient events together for further evaluation
+(e.g. velocity information).\\
 \begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
@@ -426,68 +436,29 @@ refractive index of the diesel fuel and the PMMA are similar but not identical.
 \end{tikzpicture}
 \end{center}
 \vspace*{-2mm}
-\caption{Cavitation in orifice at 50 MPa rail pressure and different back pressures of
+\caption{Cavitation in orifice at 50 MPa injection pressure and different back pressures of
          1~atm (left), 1.5~MPa (middle) and 3~MPa (right). Note that the images are
 				 rotated clockwise by 90$^{\circ}$ compared to figure \ref{fig3} and \ref{fig4}.}
 \label{fig5} 
 \end{figure}
-
 
 % -- Try not to assume things when you don't need to.
 % -- Don't state things strongly, unless you have good evidence to back it up.
 %    Try to be clear when you express supposition, and be very careful that you
 %    mean what you say when you use emphasis terms like 'clearly', 'extensively',
 %    'very', etc.
-The cavitation pockets along the orifice walls are visible over the entire length,
-which may indicate the occurrence of non-symmetric hydraulic flip.
-However, the cavitation is highly unsymmetrical as clearly visible in the averaged image shown
-in figure \ref{fig4} b). The cavitation pocket on the top side of the orifice is larger which
-can makes sense given the flow direction coming from the top of the sac bore.
-%
 
-To eliminate the transient turbulence phenomena in the orifice, the single images
-acquired during the steady-state injection process have been averaged over multiple injections. An averaged image is depicted in figure \ref{fig4} b).
 %
-
-The transient cavitation phenomena that are visible between the cavitation pockets along the
-orifice walls are highly fluctual and different from image to image.  As the images are only
-acquired with 20,000~fps the timing between single events is 50~$\mu$s which is too long at
-the given velocities to connect the transient events together for further evaluation
-(e.g. velocity information).\\
-%
-Figure \ref{fig5} shows the averaged in-nozzle flow with identical rail pressure (50~MPa)
+Figure \ref{fig5} shows the averaged in-nozzle flow with identical injection pressure (50~MPa)
 for different back pressures: 1~atm ($CN \approx 390$), 1.5~MPa ($CN \approx 25$) and 3~MPa
 ($CN \approx 12$)). The images are rotated clockwise by 90$^{\circ}$ compared to figure
 \ref{fig3} and \ref{fig4}. The flow enters the nozzle from the right side and leaves the
-orifice to the bottom. The cavitation pocket sizes get smaller with increasing back pressure
+orifice to the bottom. \newline
+The cavitation pocket sizes get smaller with increasing back pressure
 (decreasing $CN$) but remain filling the whole length of the orifice on both sides.
 %
 
-The in-nozzle flow depicted in figure \ref{fig6} is an averaged image from injections at
-80~MPa rail and 3~MPa back pressure ($CN \approx 21$). This pressure ratio represents the
-same fuel pressure and air density as in large two-stroke marine diesel engines.
-%
 
-
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}
-\node[inner sep=0pt] (russell) at (0,0){\includegraphics[angle=90, width=3in]{20170227_02_0165_edit}};
-\end{tikzpicture}
-\end{center}
-\vspace*{-2mm}
-\caption{Cavitation in orifice at 80 MPa rail pressure and 3~MPa back pressures ($CN \approx 21$).}
-\label{fig6} 
-\end{figure}
-
-
-Similar to the images shown from lower injection pressure (see figure \ref{fig4} and \ref{fig5}),
-the cavitation emerges over the whole length of the orifice as well.\\
-%
-The cavitation number for the shown cases at 50~MPa (1.5~MPa back pressure) and 80~MPa
-(3~MPa back pressure) rail pressure are similar ($CN \approx 25$ and $CN \approx 21$,
-respectively) but the cavitation pockets within the orifice look different when compared
-to each other.\\
 
 
 %CONCLUSIONS
@@ -495,7 +466,7 @@ to each other.\\
 The newly developed spray chamber proofs to be a valuable addition to the experimental equipment
 at Chalmers. The flushing procedure helps reduce fuel deposits on the windows significantly.
 The transparent nozzle holder developed by \cite{Falgout2015} was able to withstand the desired
-fuel pressures of up to 80~MPa and the large orifice diameter of 0.75~mm. However, due to space
+fuel pressures of up to 50~MPa and the large orifice diameter of 0.75~mm. However, due to space
 limitations of the current design, a new transparent nozzle holder has to be developed.
 Especially for angled orifices and multi-hole nozzles, the current design is not feasible due
 to geometrical restrictions. Additionally, to investigate the transient in-nozzle flow at the
@@ -523,7 +494,7 @@ will be investigated in future work.\\
 %
 Additionally, simultaneous optical measurements of in-nozzle flow and primary spray breakup
 will be the next step in this project as well as first CFD validation within the simulation
-groups at Win~G\&D and Combustion Division at Chalmers.\\
+groups at Win~G\&D and Combustion Division at Chalmers.
 %
 
 
@@ -533,7 +504,7 @@ groups at Win~G\&D and Combustion Division at Chalmers.\\
 The authors would like to thank the Combustion Engine Research Center (CERC),
 the Swedish Energy Agency and the Swiss Federal Office of Energy for funding.
 Special thanks to Mark~Linne and Zachary Falgout for their support.
-\newline
+
 
 %REFERENCES
 \bibliography{ilass}
